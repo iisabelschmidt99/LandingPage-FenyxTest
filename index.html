@@ -2,273 +2,280 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Fenyx - Rethinking Office Furniture</title>
+  <title>Fenyx - Neon Office Revolution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for modern look -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2e2e2e;
-      --accent: #6ee7b7;
-      --bg: #f8fafc;
-      --card-bg: #fff;
-      --shadow: 0 8px 32px rgba(60,60,60,0.08);
-      --radius: 22px;
+      --bg: #181a20;
+      --card-bg: #23262f;
+      --neon: #39ff14;
+      --neon2: #00e0ff;
+      --text: #fff;
+      --muted: #b0b0b0;
+      --radius: 24px;
+      --shadow: 0 8px 32px rgba(57,255,20,0.08);
       --transition: 0.2s cubic-bezier(.4,0,.2,1);
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
       background: var(--bg);
-      color: var(--primary);
+      color: var(--text);
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(24,26,32,0.95);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 2rem 4vw 1rem 4vw;
-      background: #fff;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 2rem 5vw 1rem 5vw;
+      border-bottom: 1px solid #222;
     }
     .logo {
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      color: var(--primary);
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--neon);
+      text-shadow: 0 0 12px var(--neon2), 0 0 2px #fff;
       display: flex;
       align-items: center;
-    }
-    .logo span {
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-left: 2px;
     }
     nav {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
     }
     nav a {
+      color: var(--text);
       text-decoration: none;
-      color: var(--primary);
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color var(--transition);
+      font-size: 1.2rem;
+      font-weight: 600;
       position: relative;
+      transition: color var(--transition);
     }
     nav a::after {
       content: '';
       display: block;
       width: 0;
       height: 2px;
-      background: var(--accent);
+      background: var(--neon2);
       transition: width var(--transition);
       position: absolute;
       left: 0; bottom: -4px;
     }
+    nav a:hover {
+      color: var(--neon2);
+    }
     nav a:hover::after {
       width: 100%;
     }
-    .cta-btn {
-      background: linear-gradient(90deg, var(--accent), #a7f3d0);
-      color: #222;
-      border: none;
-      border-radius: 999px;
-      padding: 0.7em 1.6em;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 2px 12px rgba(110,231,183,0.15);
-      transition: transform var(--transition), box-shadow var(--transition);
-      margin-left: 1rem;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px) scale(1.04) rotate(-1deg);
-      box-shadow: 0 6px 24px rgba(110,231,183,0.25);
-    }
     .hero {
-      padding: 4vw 4vw 2vw 4vw;
+      padding: 6vw 5vw 3vw 5vw;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 2rem;
-      background: linear-gradient(120deg, #f0fdfa 60%, #d1fae5 100%);
+      background: linear-gradient(120deg, #23262f 60%, #181a20 100%);
       border-radius: 0 0 var(--radius) var(--radius);
       margin-bottom: 2rem;
       position: relative;
       overflow: hidden;
     }
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
       margin: 0;
-      color: var(--primary);
+      color: var(--neon);
       letter-spacing: -2px;
-      text-shadow: 0 2px 8px #fff8;
+      text-shadow: 0 0 24px var(--neon2), 0 2px 8px #0008;
     }
     .hero p {
-      font-size: 1.2rem;
-      color: #444;
-      max-width: 600px;
+      font-size: 1.5rem;
+      color: var(--muted);
+      max-width: 700px;
       margin: 0 0 1rem 0;
     }
     .hero-actions {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
-    .hero-actions button {
-      font-size: 1.1rem;
-    }
-    .hero-img {
-      width: 100%;
-      max-width: 1100px;
-      margin: 2rem auto 0 auto;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .neon-btn {
+      background: none;
+      color: var(--neon2);
+      border: 2px solid var(--neon2);
+      border-radius: 999px;
+      padding: 0.8em 2em;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 16px var(--neon2), 0 2px 12px #0004;
+      transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+      margin-left: 0;
       position: relative;
-      min-height: 320px;
-      background: #e0e7ef;
+      overflow: hidden;
+    }
+    .neon-btn:hover {
+      background: var(--neon2);
+      color: #181a20;
+      box-shadow: 0 0 32px var(--neon2), 0 4px 24px #0008;
+      transform: scale(1.04) rotate(-1deg);
+    }
+    /* Big Gallery Section */
+    .big-gallery-section {
+      margin: 4rem 0 2rem 0;
+      padding: 0 5vw;
+    }
+    .big-gallery-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: var(--neon2);
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px var(--neon2);
+      text-align: center;
+    }
+    .big-gallery-scroll {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 3rem;
+      overflow-x: auto;
+      padding-bottom: 2rem;
+      scroll-snap-type: x mandatory;
     }
-    .hero-img img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: var(--radius);
-      filter: brightness(0.98) saturate(1.1);
-      transition: filter var(--transition);
-    }
-    .hero-img:hover img {
-      filter: brightness(1) saturate(1.2);
-    }
-    .solutions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin: 3rem 0 2rem 0;
-      padding: 0 4vw;
-    }
-    .card {
+    .big-gallery-item {
+      min-width: 480px;
+      max-width: 600px;
       background: var(--card-bg);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-      flex: 1 1 320px;
-      max-width: 400px;
-      min-width: 260px;
+      box-shadow: 0 4px 24px #0006, 0 0 16px var(--neon2) inset;
+      overflow: hidden;
+      scroll-snap-align: start;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform var(--transition), box-shadow var(--transition);
-      position: relative;
-      overflow: hidden;
     }
-    .card:hover {
-      transform: translateY(-6px) scale(1.03) rotate(-1deg);
-      box-shadow: 0 12px 36px rgba(110,231,183,0.18);
-    }
-    .card img {
+    .big-gallery-item img {
       width: 100%;
-      max-width: 320px;
-      border-radius: 16px;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 12px #0001;
+      display: block;
+      object-fit: cover;
+      height: 340px;
+      filter: brightness(1.1) saturate(1.2);
+      transition: filter var(--transition);
     }
-    .card h3 {
+    .big-gallery-item:hover {
+      transform: scale(1.04) rotate(-1deg);
+      box-shadow: 0 0 32px var(--neon2), 0 8px 32px #0008;
+    }
+    .big-gallery-item .caption {
+      padding: 1.5rem;
+      color: var(--text);
       font-size: 1.3rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem 0;
-      color: var(--primary);
-    }
-    .card p {
-      font-size: 1rem;
-      color: #555;
-      margin: 0 0 1.2rem 0;
+      background: rgba(24,26,32,0.85);
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
       text-align: center;
+      width: 100%;
     }
-    .card .cta-btn {
-      margin: 0;
-      font-size: 1rem;
-      padding: 0.5em 1.2em;
-    }
-    .about-section {
+    /* Spotlight vertical scroll section */
+    .spotlight-section {
+      margin: 5rem 0 2rem 0;
+      padding: 0 5vw;
+      background: linear-gradient(120deg, #23262f 60%, #181a20 100%);
+      border-radius: var(--radius);
+      position: relative;
+      height: 500px;
+      overflow: hidden;
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 4vw 2rem 4vw;
-      background: linear-gradient(90deg, #f0fdfa 60%, #d1fae5 100%);
-      border-radius: var(--radius);
-      margin: 2rem 0;
     }
-    .about-content {
-      flex: 2 1 320px;
-      min-width: 260px;
-    }
-    .about-content h2 {
+    .spotlight-title {
       font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 1rem 0;
+      color: var(--neon);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 8px var(--neon);
     }
-    .about-content p {
-      font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 1.2rem;
-    }
-    .about-logo {
-      flex: 1 1 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-    }
-    .about-logo .logo-img {
-      background: var(--primary);
-      color: #fff;
-      font-size: 2.5rem;
-      font-weight: 700;
+    .spotlight-scroll {
+      height: 340px;
+      width: 100%;
+      max-width: 600px;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
       border-radius: var(--radius);
-      padding: 2.5rem 3rem;
+      box-shadow: 0 0 16px var(--neon2) inset;
+      background: var(--card-bg);
+      padding: 1rem 0;
+    }
+    .spotlight-item {
+      height: 320px;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--shadow);
-      letter-spacing: 2px;
+      scroll-snap-align: start;
+      margin-bottom: 1.5rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 2px 12px #0004;
+      background: #23262f;
     }
-    @media (max-width: 900px) {
-      .solutions, .about-section {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .about-logo {
-        justify-content: flex-start;
-      }
+    .spotlight-item img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: var(--radius);
+      box-shadow: 0 0 12px var(--neon2);
     }
-    @media (max-width: 600px) {
-      header, .hero, .solutions, .about-section {
-        padding-left: 5vw;
-        padding-right: 5vw;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .about-content h2 {
-        font-size: 1.3rem;
-      }
+    /* Collage section */
+    .collage-section {
+      margin: 5rem 0 2rem 0;
+      padding: 0 5vw;
+      position: relative;
+      min-height: 600px;
     }
-    /* Animations */
+    .collage-img {
+      position: absolute;
+      border-radius: 18px;
+      box-shadow: 0 0 24px #000a, 0 0 16px var(--neon) inset;
+      border: 2px solid var(--neon2);
+      object-fit: cover;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .collage-img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 0 32px var(--neon), 0 8px 32px #0008;
+      z-index: 2;
+    }
+    .img1 { top: 0; left: 0; width: 320px; height: 220px; }
+    .img2 { top: 60px; left: 340px; width: 220px; height: 320px; }
+    .img3 { top: 320px; left: 80px; width: 260px; height: 180px; }
+    .img4 { top: 180px; left: 600px; width: 320px; height: 220px; }
+    @media (max-width: 1100px) {
+      .collage-section { min-height: 800px; }
+      .img1, .img2, .img3, .img4 { position: static; width: 100%; height: 180px; margin-bottom: 1.5rem; }
+      .collage-section { display: flex; flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 700px) {
+      header, .hero, .big-gallery-section, .collage-section, .spotlight-section { padding-left: 4vw; padding-right: 4vw; }
+      .hero h1 { font-size: 2.2rem; }
+      .big-gallery-title { font-size: 1.3rem; }
+      .spotlight-title { font-size: 1.1rem; }
+    }
+    /* Fade-in animation */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
       transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
     }
     .fade-in.visible {
@@ -279,65 +286,120 @@
 </head>
 <body>
   <header>
-    <div class="logo">fenyx<span>°</span></div>
+    <div class="logo">FENYX°</div>
     <nav>
-      <a href="#">Leistungen</a>
-      <a href="#">Referenzen</a>
-      <a href="#">Über Fenyx</a>
-      <button class="cta-btn">+49 151 64526580</button>
+      <a href="#">Home</a>
+      <a href="#">Work</a>
+      <a href="#">Team</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
-  <section class="hero">
-    <h1>Rethinking the Future of Office Furniture.</h1>
+  <section class="hero fade-in">
+    <h1>Rethink Office. <br>Live Neon.</h1>
     <p>
-      At Fenyx, we bring sustainability to everyday office life: with circular furniture concepts, we create pioneering workspaces for companies that want more. Experience office furniture that combines environmental awareness with design.
+      We create bold, sustainable office spaces with a creative edge. <br>
+      Circular furniture, neon vibes, and a team that dares to be different.
     </p>
     <div class="hero-actions">
-      <button class="cta-btn">Get in Touch Now</button>
-      <button class="cta-btn" style="background: #fff; color: var(--primary); border: 2px solid var(--accent);">Learn More</button>
-    </div>
-    <div class="hero-img fade-in">
-      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80" alt="Modern Office" />
+      <button class="neon-btn">Get in Touch</button>
+      <button class="neon-btn" style="border-color:var(--neon);color:var(--neon);">See Our Work</button>
     </div>
   </section>
-  <section class="solutions">
-    <div class="card fade-in">
-      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Sell Office Equipment" />
-      <h3>Sell your office equipment hassle-free</h3>
-      <p>Sell your used office equipment quickly and at the best price.</p>
-      <button class="cta-btn">Plan Your Buy Back Now</button>
-    </div>
-    <div class="card fade-in">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Sustainable Office" />
-      <h3>Set up your office sustainably.</h3>
-      <p>Furnish your new office concept with high-quality second-hand furniture.</p>
-      <button class="cta-btn">Furnish Sustainably Now</button>
-    </div>
-  </section>
-  <section class="about-section">
-    <div class="about-content fade-in">
-      <h2>About Fenyx - Our path to sustainable office environments</h2>
-      <p>
-        At Fenyx, we are revolutionizing office equipment through sustainable and innovative solutions. Our mission goes beyond mere design — we offer companies efficient ways to sell their used office equipment sustainably as part of our purchase projects, as well as the opportunity to design modern workspaces with our circular furniture concepts. Dive deeper into our vision, corporate values, and holistic approach to the future of office furnishing on our 'About Us' page.
-      </p>
-      <button class="cta-btn">Learn More</button>
-    </div>
-    <div class="about-logo fade-in">
-      <div class="logo-img">fenyx<span style="color:var(--accent);font-size:2rem;">°</span></div>
+  <!-- Big Gallery Section with your images -->
+  <section class="big-gallery-section fade-in">
+    <div class="big-gallery-title">Office Furniture Gallery</div>
+    <div class="big-gallery-scroll">
+      <div class="big-gallery-item">
+        <img src="https://www.whisperandecho.co.uk/wp-content/uploads/2020/02/TimelineVC1-1024x690_c.jpg" alt="Green Vintage Sofa">
+        <div class="caption">Green Vintage Sofa</div>
+      </div>
+      <div class="big-gallery-item">
+        <img src="https://media.istockphoto.com/id/1415799772/photo/home-interior-with-vintage-furniture.jpg?s=612x612&w=0&k=20&c=E5aUyAFo5_xjHcdk0nEZGVDipOkYEtyXQmJBskUbqo8=" alt="Vintage Sideboard and Chair">
+        <div class="caption">Vintage Sideboard & Chair</div>
+      </div>
+      <div class="big-gallery-item">
+        <img src="https://www.vintagemillwerks.com/wp-content/uploads/2021/01/VintageMillWerks-seotool-41022-TheAdvantagesof-blogbanner1.jpg" alt="Retro Office">
+        <div class="caption">Retro Office</div>
+      </div>
+      <div class="big-gallery-item">
+        <img src="https://huntvintage.co/wp-content/uploads/2024/12/Vintage-Guide.jpg" alt="Antique Desk and Chair">
+        <div class="caption">Antique Desk & Chair</div>
+      </div>
     </div>
   </section>
-  <script>
-    // Fade-in animation on scroll
-    function revealOnScroll() {
-      document.querySelectorAll('.fade-in').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) {
-          el.classList.add('visible');
-        }
-      });
+  <!-- Spotlight vertical scroll section -->
+  <section class="spotlight-section fade-in">
+    <div class="spotlight-title">Spotlight: Our Favorite Pieces</div>
+    <div class="spotlight-scroll">
+      <div class="spotlight-item">
+        <img src="https://www.whisperandecho.co.uk/wp-content/uploads/2020/02/TimelineVC1-1024x690_c.jpg" alt="Green Vintage Sofa">
+      </div>
+      <div class="spotlight-item">
+        <img src="https://media.istockphoto.com/id/1415799772/photo/home-interior-with-vintage-furniture.jpg?s=612x612&w=0&k=20&c=E5aUyAFo5_xjHcdk0nEZGVDipOkYEtyXQmJBskUbqo8=" alt="Vintage Sideboard and Chair">
+      </div>
+      <div class="spotlight-item">
+        <img src="https://www.vintagemillwerks.com/wp-content/uploads/2021/01/VintageMillWerks-seotool-41022-TheAdvantagesof-blogbanner1.jpg" alt="Retro Office">
+      </div>
+      <div class="spotlight-item">
+        <img src="https://huntvintage.co/wp-content/uploads/2024/12/Vintage-Guide.jpg" alt="Antique Desk and Chair">
+      </div>
+    </div>
+  </section>
+  <!-- Collage Section -->
+  <section class="collage-section-full fade-in">
+    <div class="collage-neon-text">Vintage Office Vibes</div>
+    <img src="https://www.whisperandecho.co.uk/wp-content/uploads/2020/02/TimelineVC1-1024x690_c.jpg" class="collage-img img1" alt="Green Vintage Sofa">
+    <img src="https://media.istockphoto.com/id/1415799772/photo/home-interior-with-vintage-furniture.jpg?s=612x612&w=0&k=20&c=E5aUyAFo5_xjHcdk0nEZGVDipOkYEtyXQmJBskUbqo8=" class="collage-img img2" alt="Vintage Sideboard and Chair">
+    <img src="https://www.vintagemillwerks.com/wp-content/uploads/2021/01/VintageMillWerks-seotool-41022-TheAdvantagesof-blogbanner1.jpg" class="collage-img img3" alt="Retro Office">
+    <img src="https://huntvintage.co/wp-content/uploads/2024/12/Vintage-Guide.jpg" class="collage-img img4" alt="Antique Desk and Chair">
+  </section>
+  <style>
+    .collage-section-full {
+      width: 100vw;
+      position: relative;
+      min-height: 600px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(120deg, #23262f 60%, #181a20 100%);
+      display: block;
     }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
-  </script>
-</body>
-</html>
+    .collage-section-full .collage-neon-text {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--neon2);
+      text-shadow: 0 0 32px var(--neon2), 0 0 8px #fff, 0 2px 8px #0008;
+      letter-spacing: 2px;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
+    .collage-section-full .collage-img {
+      position: absolute;
+      border-radius: 18px;
+      box-shadow: 0 0 24px #000a, 0 0 16px var(--neon) inset;
+      border: 2px solid var(--neon2);
+      object-fit: cover;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .collage-section-full .collage-img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 0 32px var(--neon), 0 8px 32px #0008;
+      z-index: 2;
+    }
+    .collage-section-full .img1 { top: 120px; left: 2vw; width: 32vw; height: 340px; }
+    .collage-section-full .img2 { top: 60px; left: 36vw; width: 26vw; height: 400px; }
+    .collage-section-full .img3 { top: 260px; left: 64vw; width: 28vw; height: 300px; }
+    .collage-section-full .img4 { top: 400px; left: 16vw; width: 36vw; height: 260px; }
+    @media (max-width: 1100px) {
+      .collage-section-full .collage-neon-text { font-size: 2rem; top: 20px; }
+      .collage-section-full .img1, .collage-section-full .img2, .collage-section-full .img3, .collage-section-full .img4 {
+        position: static; width: 90vw; height: 180px; margin: 1.5rem auto; display: block;
+      }
+      .collage-section-full { min-height: unset; display: flex; flex-direction: column; align-items: center; }
+    }
