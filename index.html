@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Fenyx - Rethinking Office Furniture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2e2e2e;
+      --accent: #6ee7b7;
+      --bg: #f8fafc;
+      --card-bg: #fff;
+      --shadow: 0 8px 32px rgba(60,60,60,0.08);
+      --radius: 22px;
+      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 4vw 1rem 4vw;
+      background: #fff;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+    .logo span {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color var(--transition);
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+      position: absolute;
+      left: 0; bottom: -4px;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, var(--accent), #a7f3d0);
+      color: #222;
+      border: none;
+      border-radius: 999px;
+      padding: 0.7em 1.6em;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(110,231,183,0.15);
+      transition: transform var(--transition), box-shadow var(--transition);
+      margin-left: 1rem;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.04) rotate(-1deg);
+      box-shadow: 0 6px 24px rgba(110,231,183,0.25);
+    }
+    .hero {
+      padding: 4vw 4vw 2vw 4vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+      background: linear-gradient(120deg, #f0fdfa 60%, #d1fae5 100%);
+      border-radius: 0 0 var(--radius) var(--radius);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0;
+      color: var(--primary);
+      letter-spacing: -2px;
+      text-shadow: 0 2px 8px #fff8;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 600px;
+      margin: 0 0 1rem 0;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .hero-actions button {
+      font-size: 1.1rem;
+    }
+    .hero-img {
+      width: 100%;
+      max-width: 1100px;
+      margin: 2rem auto 0 auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      min-height: 320px;
+      background: #e0e7ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-img img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+      filter: brightness(0.98) saturate(1.1);
+      transition: filter var(--transition);
+    }
+    .hero-img:hover img {
+      filter: brightness(1) saturate(1.2);
+    }
+    .solutions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 3rem 0 2rem 0;
+      padding: 0 4vw;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      flex: 1 1 320px;
+      max-width: 400px;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.03) rotate(-1deg);
+      box-shadow: 0 12px 36px rgba(110,231,183,0.18);
+    }
+    .card img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 16px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 12px #0001;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: var(--primary);
+    }
+    .card p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0 0 1.2rem 0;
+      text-align: center;
+    }
+    .card .cta-btn {
+      margin: 0;
+      font-size: 1rem;
+      padding: 0.5em 1.2em;
+    }
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 4vw 2rem 4vw;
+      background: linear-gradient(90deg, #f0fdfa 60%, #d1fae5 100%);
+      border-radius: var(--radius);
+      margin: 2rem 0;
+    }
+    .about-content {
+      flex: 2 1 320px;
+      min-width: 260px;
+    }
+    .about-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+    }
+    .about-content p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+    .about-logo {
+      flex: 1 1 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+    }
+    .about-logo .logo-img {
+      background: var(--primary);
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      letter-spacing: 2px;
+    }
+    @media (max-width: 900px) {
+      .solutions, .about-section {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .about-logo {
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 600px) {
+      header, .hero, .solutions, .about-section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .about-content h2 {
+        font-size: 1.3rem;
+      }
+    }
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">fenyx<span>°</span></div>
+    <nav>
+      <a href="#">Leistungen</a>
+      <a href="#">Referenzen</a>
+      <a href="#">Über Fenyx</a>
+      <button class="cta-btn">+49 151 64526580</button>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Rethinking the Future of Office Furniture.</h1>
+    <p>
+      At Fenyx, we bring sustainability to everyday office life: with circular furniture concepts, we create pioneering workspaces for companies that want more. Experience office furniture that combines environmental awareness with design.
+    </p>
+    <div class="hero-actions">
+      <button class="cta-btn">Get in Touch Now</button>
+      <button class="cta-btn" style="background: #fff; color: var(--primary); border: 2px solid var(--accent);">Learn More</button>
+    </div>
+    <div class="hero-img fade-in">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80" alt="Modern Office" />
+    </div>
+  </section>
+  <section class="solutions">
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Sell Office Equipment" />
+      <h3>Sell your office equipment hassle-free</h3>
+      <p>Sell your used office equipment quickly and at the best price.</p>
+      <button class="cta-btn">Plan Your Buy Back Now</button>
+    </div>
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Sustainable Office" />
+      <h3>Set up your office sustainably.</h3>
+      <p>Furnish your new office concept with high-quality second-hand furniture.</p>
+      <button class="cta-btn">Furnish Sustainably Now</button>
+    </div>
+  </section>
+  <section class="about-section">
+    <div class="about-content fade-in">
+      <h2>About Fenyx - Our path to sustainable office environments</h2>
+      <p>
+        At Fenyx, we are revolutionizing office equipment through sustainable and innovative solutions. Our mission goes beyond mere design — we offer companies efficient ways to sell their used office equipment sustainably as part of our purchase projects, as well as the opportunity to design modern workspaces with our circular furniture concepts. Dive deeper into our vision, corporate values, and holistic approach to the future of office furnishing on our 'About Us' page.
+      </p>
+      <button class="cta-btn">Learn More</button>
+    </div>
+    <div class="about-logo fade-in">
+      <div class="logo-img">fenyx<span style="color:var(--accent);font-size:2rem;">°</span></div>
+    </div>
+  </section>
+  <script>
+    // Fade-in animation on scroll
+    function revealOnScroll() {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+  </script>
+</body>
+</html>
